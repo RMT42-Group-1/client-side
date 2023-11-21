@@ -9,11 +9,9 @@ const Navbar = () => {
 	};
 
 	return (
-		<div className="w-full p-4 px-10 bg-indigo-600 flex justify-between">
+		<div className="w-full p-4 px-10 bg-indigo-600 flex justify-between fixed">
 			<div className="logo text-slate-100 flex items-center">PAIR GAME</div>
-			<div className="main">
-				<div>Lobby</div>
-			</div>
+			<div className="main">{/* <div>Lobby</div> */}</div>
 			<div className="secondary">
 				<button
 					onClick={handleOnLogout}
