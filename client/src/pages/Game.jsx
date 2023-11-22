@@ -1,12 +1,31 @@
 import PlayerInfo from '../component/PlayerInfo';
 import Card from '../component/Card';
+import { useSelector, useDispatch } from 'react-redux';
+import { useContext, useEffect } from 'react';
+import { setCards } from '../features/card/cardSlice';
+import { SocketContext } from '../context/socket';
 
 const Game = () => {
-	let array = [];
+	const cards = useSelector((state) => state.card.list);
+	const dispatch = useDispatch();
+	// const [socket, setSocket] = useState(null);
+	const { socket } = useContext(SocketContext);
+	const room = 'TORTUGA';
 
-	for (let i = 1; i <= 24; i++) {
-		array.push(i);
-	}
+	useEffect(() => {
+		// setSocket(io('http://localhost:3000'));
+	}, []);
+
+	useEffect(() => {
+		if (socket) {
+			socket.on('card:newData', (newCards) => {
+				// console.log('new data', newCards);
+				dispatch(setCards(newCards));
+				// console.log(cards);
+			});
+			socket.emit('JoinRoom', room);
+		}
+	}, [socket]);
 
 	const dummy = [
 		{
@@ -41,9 +60,12 @@ const Game = () => {
 			</div>
 			{/* cards */}
 			<div className="cards w-full min-h-5/6 py-10 px-20 flex flex-wrap justify-center items-center gap-4">
-				{array.map((val) => {
-					return <Card key={val} />;
-				})}
+				{cards &&
+					cards.map((data, index) => {
+						return (
+							<Card key={index} data={data} index={index} socket={socket} />
+						);
+					})}
 			</div>
 			<div className="players"></div>
 		</div>

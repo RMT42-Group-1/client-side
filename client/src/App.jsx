@@ -3,26 +3,22 @@ import './App.css';
 import router from './router';
 
 import { useContext, useEffect } from 'react';
-import socketContext from "./context/socket.jsx"
+import { SocketContext } from './context/socket.jsx';
 
 function App() {
-	const socket = useContext(socketContext)
+	const { socket } = useContext(SocketContext);
 
 	useEffect(() => {
-		console.log("SERVER CONNECTED", socket)
-	}, [])
+		console.log('SERVER CONNECTED', socket);
+	}, []);
 
 	useEffect(() => {
-		if(socket) {
-			socket.on("SOCKETUS", (payload) => {
-				console.log(payload)
-			})
-
-			return () => {
-				socket.disconnect()
-			}
+		if (socket) {
+			socket.on('SOCKETUS', (payload) => {
+				console.log(payload);
+			});
 		}
-	}, [socket])
+	}, [socket]);
 
 	return <RouterProvider router={router} />;
 }

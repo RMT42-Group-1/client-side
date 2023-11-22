@@ -1,6 +1,6 @@
 import RoomBar from '../component/RoomBar';
 import { useContext, useEffect, useState } from 'react';
-import socketContext from '../context/socket.jsx';
+import { SocketContext } from '../context/socket.jsx';
 import { Link } from 'react-router-dom';
 
 const Room = () => {
@@ -8,7 +8,7 @@ const Room = () => {
 	const [users, setUsers] = useState([]);
 	const [scores, setScores] = useState([]);
 
-	const socket = useContext(socketContext);
+	const { socket } = useContext(SocketContext);
 
 	const handleJoinRoom = () => {
 		socket.emit('JoinRoom', target);
