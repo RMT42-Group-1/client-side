@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import api from '../../api';
+import { fetchLeaderboardApi } from './actions';
 
 const initialState = {
 	list: [],
@@ -19,7 +19,7 @@ export const { setLeaderboard } = leaderboardSlice.actions;
 
 export const fetchLeaderboard = () => {
 	return async (dispatch) => {
-		const { data } = await api.get('/scores');
+		const data = await fetchLeaderboardApi();
 		dispatch(setLeaderboard(data));
 	};
 };
