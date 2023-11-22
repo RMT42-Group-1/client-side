@@ -1,4 +1,5 @@
 import PlayerInfo from '../component/PlayerInfo';
+import Card from '../component/Card';
 
 const Game = () => {
 	let array = [];
@@ -41,12 +42,7 @@ const Game = () => {
 			{/* cards */}
 			<div className="cards w-full min-h-5/6 py-10 px-20 flex flex-wrap justify-center items-center gap-4">
 				{array.map((val) => {
-					return (
-						<div
-							key={val}
-							className="w-[11%] aspect-[140/190] bg-[url('/LastGuardian/amg1_fr1.png')] bg-contain bg-no-repeat"
-						></div>
-					);
+					return <Card key={val} />;
 				})}
 			</div>
 			<div className="players"></div>
