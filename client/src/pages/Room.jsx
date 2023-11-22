@@ -1,6 +1,30 @@
 import RoomBar from '../component/RoomBar';
+import { useContext, useEffect, useState } from 'react';
+import socketContext from "../context/socket.jsx"
 
 const Room = () => {
+	const [target, setTarget] = useState("")
+	const [users, setUsers] = useState([])
+	const [scores, setScores] = useState([])
+
+	const socket = useContext(socketContext)
+
+	const handleJoinRoom = () => {
+		socket.emit("JoinRoom", target)
+		setTarget("")
+	}
+
+	useEffect(() => {
+		socket.on("fetchData", (users, scores) => {
+			setUsers(users)
+			setScores(scores)
+		})
+
+		return () => {
+			socket.off("fetchData")
+		}
+	}, [socket])
+
 	const dummy = [
 		{
 			id: 1,
