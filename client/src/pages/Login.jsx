@@ -1,12 +1,16 @@
 import { useState } from 'react';
 import Input from '../component/Form/Input';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../features/user/userSlice';
 
 const Login = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
 	const [user, setUser] = useState({
-		username: '',
-		email: '',
-		password: '',
+		email: 'test1@gmail.com',
+		password: '12345',
 	});
 
 	const onChange = (e, name) => {
@@ -18,11 +22,25 @@ const Login = () => {
 		});
 	};
 
+	const handleOnLogin = async (e) => {
+		e.preventDefault();
+		try {
+			await dispatch(login(user));
+			console.log('SUCCESS LOGIN');
+			navigate('/');
+		} catch (error) {
+			console.log(error.response.data.message);
+		}
+	};
+
 	return (
 		<div className="w-full h-screen flex">
 			<div className="half-bg bg-gradient-to-r from-indigo-800 w-1/2"></div>
 			<div className="main form w-1/2 flex justify-center items-center">
-				<form className="w-4/6 py-14 px-12 flex flex-col gap-4 justify-center items-center bg-gradient-to-r from-indigo-400 to-indigo-800 text-slate-100 rounded-3xl shadow-2xl hover:shadow-indigo-600 hover:shadow-2xl hover:scale-105 transition-all delay-100">
+				<form
+					onSubmit={handleOnLogin}
+					className="w-4/6 py-14 px-12 flex flex-col gap-4 justify-center items-center bg-gradient-to-r from-indigo-400 to-indigo-800 text-slate-100 rounded-3xl shadow-2xl hover:shadow-indigo-600 hover:shadow-2xl hover:scale-105 transition-all delay-100"
+				>
 					<div className="title text-4xl mb-10">Login</div>
 					<Input
 						type="email"
