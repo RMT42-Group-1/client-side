@@ -15,7 +15,7 @@ const Card = () => {
 		<div className="w-[11%] aspect-[140/190] relative">
 			<div
 				onClick={handleOnFlip}
-				className={`w-full h-full transition absolute delay-100 ease-out backface-hidden duration-500 ${
+				className={`w-full h-full transition absolute ease-out backface-hidden duration-500 ${
 					isFront ? 'rotate-y-180' : ''
 				}`}
 			>
@@ -27,7 +27,7 @@ const Card = () => {
 			</div>
 			<div
 				onClick={handleOnFlip}
-				className={`w-full h-full transition absolute delay-100 ease-out backface-hidden duration-500 ${
+				className={`w-full h-full transition absolute ease-out backface-hidden duration-500 ${
 					isFront ? '' : '-rotate-y-180'
 				}`}
 			>
