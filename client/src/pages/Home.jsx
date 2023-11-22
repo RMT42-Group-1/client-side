@@ -5,8 +5,8 @@ import Room from './Room';
 const Home = () => {
 	return (
 		<div className="w-full h-screen flex ">
-			{/* <MainRoom /> */}
-			<Room />
+			<MainRoom />
+			{/* <Room /> */}
 			<Leaderboard />
 		</div>
 	);

@@ -21,7 +21,7 @@ const MainRoom = () => {
 						<input
 							type="submit"
 							value="Create"
-							className="py-2 px-4 w-1/3 bg-indigo-600 rounded-xl text-slate-100 cursor-pointer font-bold hover:shadow-xl hover:shadow-indigo-600 hover:scale-105 active:scale-90"
+							className="py-2 px-4 w-1/3 bg-indigo-600 rounded-xl text-slate-100 cursor-pointer font-bold hover:shadow-xl hover:shadow-indigo-600 hover:scale-105 active:scale-90 transition-all"
 						/>
 					</form>
 					<form className="w-full flex gap-2">
@@ -35,7 +35,7 @@ const MainRoom = () => {
 						<input
 							type="submit"
 							value="Join"
-							className="py-2 px-4 w-1/3 bg-indigo-600 rounded-xl text-slate-100 cursor-pointer font-bold hover:shadow-xl hover:shadow-indigo-600 hover:scale-105 active:scale-90"
+							className="py-2 px-4 w-1/3 bg-indigo-600 rounded-xl text-slate-100 cursor-pointer font-bold hover:shadow-xl hover:shadow-indigo-600 hover:scale-105 active:scale-90 transition-all"
 						/>
 					</form>
 				</div>
