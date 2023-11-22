@@ -1,6 +1,6 @@
-import Leaderboard from '../component/Leaderboard';
-import MainRoom from '../component/MainRoom';
-import Room from '../component/Room';
+import Leaderboard from './Leaderboard';
+import MainRoom from './MainRoom';
+import Room from './Room';
 
 const Home = () => {
 	return (

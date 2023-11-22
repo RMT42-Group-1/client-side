@@ -1,4 +1,4 @@
-import LeaderboardBar from './LeaderboardBar';
+import LeaderboardBar from '../component/LeaderboardBar';
 
 const Leaderboard = () => {
 	const dummy = [

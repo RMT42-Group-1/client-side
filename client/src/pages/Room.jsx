@@ -1,4 +1,4 @@
-import RoomBar from './RoomBar';
+import RoomBar from '../component/RoomBar';
 
 const Room = () => {
 	const dummy = [

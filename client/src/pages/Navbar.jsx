@@ -17,7 +17,7 @@ const Navbar = () => {
 			<div className="secondary">
 				<button
 					onClick={handleOnLogout}
-					className="py-2 px-4 bg-slate-100 text-indigo-800 rounded-xl hover:bg-red-500 hover:text-slate-100 hover:shadow-lg hover:shadow-black active:scale-90"
+					className="py-2 px-4 bg-slate-100 text-indigo-800 rounded-xl hover:bg-red-500 hover:text-slate-100 hover:shadow-lg hover:shadow-black active:scale-90 font-bold"
 				>
 					Logout
 				</button>
