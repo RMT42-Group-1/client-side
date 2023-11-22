@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-const MainRoom = () => {
+const MainRoom = ({ setRoomPage }) => {
 	const [roomCreate, setRoomCreate] = useState('');
 	const [roomJoin, setRoomJoin] = useState('');
 
@@ -19,6 +20,7 @@ const MainRoom = () => {
 							onChange={(e) => setRoomCreate(e.target.value)}
 						/>
 						<input
+							onClick={() => setRoomPage('waitingRoom')}
 							type="submit"
 							value="Create"
 							className="py-2 px-4 w-1/3 bg-indigo-600 rounded-xl text-slate-100 cursor-pointer font-bold hover:shadow-xl hover:shadow-indigo-600 hover:scale-105 active:scale-90 transition-all"
@@ -33,6 +35,7 @@ const MainRoom = () => {
 							onChange={(e) => setRoomJoin(e.target.value)}
 						/>
 						<input
+							onClick={() => setRoomPage('waitingRoom')}
 							type="submit"
 							value="Join"
 							className="py-2 px-4 w-1/3 bg-indigo-600 rounded-xl text-slate-100 cursor-pointer font-bold hover:shadow-xl hover:shadow-indigo-600 hover:scale-105 active:scale-90 transition-all"
@@ -45,3 +48,7 @@ const MainRoom = () => {
 };
 
 export default MainRoom;
+
+MainRoom.propTypes = {
+	setRoomPage: PropTypes.func,
+};
