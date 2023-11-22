@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, redirect } from 'react-router-dom';
 import Register from '../pages/Register';
 import Login from '../pages/Login';
 import MainLayout from '../layouts/MainLayout';
@@ -9,6 +9,9 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <MainLayout />,
+		loader: () => {
+			return localStorage.getItem('access_token') ? null : redirect('/login');
+		},
 		children: [
 			{
 				path: '',
@@ -19,6 +22,9 @@ const router = createBrowserRouter([
 	{
 		path: '/game',
 		element: <Game />,
+		loader: () => {
+			return localStorage.getItem('access_token') ? null : redirect('/login');
+		},
 	},
 	{
 		path: '/register',
