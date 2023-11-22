@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import Input from '../component/Form/Input';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { registerApi } from '../features/user/actions';
 
 const Register = () => {
+	const navigate = useNavigate();
+
 	const [user, setUser] = useState({
 		username: '',
 		email: '',
@@ -18,11 +21,26 @@ const Register = () => {
 		});
 	};
 
+	const handeOnRegister = async (e) => {
+		e.preventDefault();
+
+		try {
+			await registerApi(user);
+			console.log('REGISTER SUCCESS');
+			navigate('/login');
+		} catch (error) {
+			console.log(error.response.data.message);
+		}
+	};
+
 	return (
 		<div className="w-full h-screen flex">
 			<div className="half-bg  bg-gradient-to-r from-indigo-800 w-1/2"></div>
 			<div className="main form w-1/2 flex justify-center items-center">
-				<form className="w-4/6 py-14 px-12 flex flex-col gap-4 justify-center items-center bg-gradient-to-r from-indigo-400 to-indigo-800 text-slate-100 rounded-3xl shadow-2xl hover:shadow-indigo-600 hover:shadow-2xl hover:scale-105 transition delay-100">
+				<form
+					onSubmit={handeOnRegister}
+					className="w-4/6 py-14 px-12 flex flex-col gap-4 justify-center items-center bg-gradient-to-r from-indigo-400 to-indigo-800 text-slate-100 rounded-3xl shadow-2xl hover:shadow-indigo-600 hover:shadow-2xl hover:scale-105 transition-all delay-100"
+				>
 					<div className="title text-4xl mb-10">Create Account</div>
 					<Input
 						value={user.username}
