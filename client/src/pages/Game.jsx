@@ -8,6 +8,11 @@ import cardsJson from '../features/card/cards.json';
 import { setPoint, setUsers } from '../features/game/gameSlice';
 
 const Game = () => {
+	//new
+	const [players, setPlayers] = useState([]);
+
+	useEffect(() => {}, []);
+
 	const { socket } = useContext(SocketContext);
 	// const cards = useSelector((state) => state.card.list);
 	const [cards, setCards] = useState([]);
@@ -23,6 +28,14 @@ const Game = () => {
 	});
 
 	const room = 'TORTUGA';
+
+	//new
+	const userData = useSelector((state) => state.user.profile);
+	console.log('User Data >>>', userData);
+
+	const username = userData.username;
+	console.log('username >>>', username);
+	//
 
 	useEffect(() => {
 		const cardsData = cardsJson;
