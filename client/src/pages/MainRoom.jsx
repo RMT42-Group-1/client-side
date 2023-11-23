@@ -13,7 +13,7 @@ const MainRoom = ({ setRoomPage }) => {
 	const handleJoinRoom = (e) => {
 		e.preventDefault()
 		console.log("HANDLING JOIN ROOM")
-		socket.emit('JoinRoom', roomCreate);
+		socket.emit('JoinRoom', roomJoin);
 
 		socket.on("joinConfirm", (payload) => {
 			console.log(payload.message)
@@ -47,7 +47,7 @@ const MainRoom = ({ setRoomPage }) => {
 							className="py-2 px-4 w-1/3 bg-indigo-600 rounded-xl text-slate-100 cursor-pointer font-bold hover:shadow-xl hover:shadow-indigo-600 hover:scale-105 active:scale-90 transition-all"
 						/>
 					</form>
-					<form className="w-full flex gap-2">
+					<form className="w-full flex gap-2" onSubmit={handleJoinRoom}>
 						<input
 							className="w-2/3 py-2 px-3 rounded-xl text-slate-100 bg-indigo-400 placeholder-indigo-200 shadow-inner shadow-indigo-800"
 							type="text"
@@ -56,7 +56,7 @@ const MainRoom = ({ setRoomPage }) => {
 							onChange={(e) => setRoomJoin(e.target.value)}
 						/>
 						<input
-							onClick={() => setRoomPage('waitingRoom')}
+							// onClick={() => setRoomPage('waitingRoom')}
 							type="submit"
 							value="Join"
 							className="py-2 px-4 w-1/3 bg-indigo-600 rounded-xl text-slate-100 cursor-pointer font-bold hover:shadow-xl hover:shadow-indigo-600 hover:scale-105 active:scale-90 transition-all"
