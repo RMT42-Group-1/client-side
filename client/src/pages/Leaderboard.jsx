@@ -1,23 +1,33 @@
+import { useEffect } from 'react';
 import LeaderboardBar from '../component/LeaderboardBar';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchLeaderboard } from '../features/leaderboard/leaderboardSlice';
 
 const Leaderboard = () => {
-	const dummy = [
-		{
-			id: 1,
-			name: 'Jack',
-			point: 100,
-		},
-		{
-			id: 2,
-			name: 'Sparrow',
-			point: 92,
-		},
-		{
-			id: 3,
-			name: 'Barbossa',
-			point: 88,
-		},
-	];
+	const leaderboard = useSelector((state) => state.leaderboard.list);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchLeaderboard());
+	}, []);
+
+	// const dummy = [
+	// 	{
+	// 		id: 1,
+	// 		name: 'Jack',
+	// 		point: 100,
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		name: 'Sparrow',
+	// 		point: 92,
+	// 	},
+	// 	{
+	// 		id: 3,
+	// 		name: 'Barbossa',
+	// 		point: 88,
+	// 	},
+	// ];
 
 	return (
 		<div className="w-1/2 h-full pt-24 bg-gradient-to-b from-indigo-600 to-indigo-400 flex justify-center items-start">
@@ -27,9 +37,10 @@ const Leaderboard = () => {
 					Leaderboard
 				</div>
 				<div className="list w-full flex flex-col gap-3 text-indigo-800">
-					{dummy.map((data) => {
-						return <LeaderboardBar key={data.id} data={data} />;
-					})}
+					{leaderboard &&
+						leaderboard.map((data, index) => {
+							return <LeaderboardBar key={data.id} index={index} data={data} />;
+						})}
 				</div>
 			</div>
 		</div>

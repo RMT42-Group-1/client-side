@@ -1,0 +1,50 @@
+[
+  {
+    "name": "amg1_fr1",
+    "front": false
+  },
+  {
+    "name": "amg2_fr1",
+    "front": false
+  },
+  {
+    "name": "amg3_fr1",
+    "front": false
+  },
+  {
+    "name": "amg4_fr1",
+    "front": false
+  },
+  {
+    "name": "avt1_fr1",
+    "front": false
+  },
+  {
+    "name": "avt2_fr1",
+    "front": false
+  },
+  {
+    "name": "avt3_fr1",
+    "front": false
+  },
+  {
+    "name": "avt4_fr1",
+    "front": false
+  },
+  {
+    "name": "bmg1_fr1",
+    "front": false
+  },
+  {
+    "name": "bmg2_fr1",
+    "front": false
+  },
+  {
+    "name": "bmg3_fr1",
+    "front": false
+  },
+  {
+    "name": "bmg4_fr1",
+    "front": false
+  }
+]

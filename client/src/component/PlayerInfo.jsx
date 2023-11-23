@@ -12,8 +12,8 @@ const PlayerInfo = ({ data }) => {
 				<div className="text-lg font-bold text-indigo-800 min-w-[50px] ">
 					{data.username}
 				</div>
-				<div className="text-lg font-bold py-1 px-2 bg-indigo-600 rounded-full text-slate-100">
-					10
+				<div className="text-lg font-bold w-8 h-8 bg-indigo-600 rounded-full flex justify-center items-center text-slate-100">
+					{data.point}
 				</div>
 			</div>
 		</div>

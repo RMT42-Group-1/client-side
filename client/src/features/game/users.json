@@ -1,0 +1,30 @@
+[
+  {
+    "socketId": 1,
+    "id": 1,
+    "imageUrl": "https://i.imgur.com/4gaSugI.jpg",
+    "username": "Jack",
+    "point": 0
+  },
+  {
+    "socketId": 2,
+    "id": 2,
+    "imageUrl": "https://i.imgur.com/4gaSugI.jpg",
+    "username": "Sparrow",
+    "point": 0
+  },
+  {
+    "socketId": 3,
+    "id": 3,
+    "imageUrl": "https://i.imgur.com/4gaSugI.jpg",
+    "username": "Barbossa",
+    "point": 0
+  },
+  {
+    "socketId": 4,
+    "id": 4,
+    "imageUrl": "https://i.imgur.com/4gaSugI.jpg",
+    "username": "Turner",
+    "point": 0
+  }
+]

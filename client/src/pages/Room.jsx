@@ -1,29 +1,30 @@
 import RoomBar from '../component/RoomBar';
 import { useContext, useEffect, useState } from 'react';
-import socketContext from "../context/socket.jsx"
+import { SocketContext } from '../context/socket.jsx';
+import { Link } from 'react-router-dom';
 
 const Room = () => {
-	const [target, setTarget] = useState("")
-	const [users, setUsers] = useState([])
-	const [scores, setScores] = useState([])
+	const [target, setTarget] = useState('');
+	const [users, setUsers] = useState([]);
+	const [scores, setScores] = useState([]);
 
-	const socket = useContext(socketContext)
+	const { socket } = useContext(SocketContext);
 
 	const handleJoinRoom = () => {
-		socket.emit("JoinRoom", target)
-		setTarget("")
-	}
+		socket.emit('JoinRoom', target);
+		setTarget('');
+	};
 
 	useEffect(() => {
-		socket.on("fetchData", (users, scores) => {
-			setUsers(users)
-			setScores(scores)
-		})
+		socket.on('fetchData', (users, scores) => {
+			setUsers(users);
+			setScores(scores);
+		});
 
 		return () => {
-			socket.off("fetchData")
-		}
-	}, [socket])
+			socket.off('fetchData');
+		};
+	}, [socket]);
 
 	const dummy = [
 		{
@@ -60,9 +61,12 @@ const Room = () => {
 						return <RoomBar key={data.id} data={data} />;
 					})}
 				</div>
-				<button className="mt-8 w-3/4 py-2 px-4 flex justify-center items-center gap-4 text-slate-100 bg-indigo-800 rounded-xl text-lg shadow-md shadow-black hover:bg-teal-300 hover:text-indigo-800 transition delay-75 ease-in-out font-bold active:scale-90">
+				<Link
+					to={'/game'}
+					className="mt-8 w-3/4 py-2 px-4 flex justify-center items-center gap-4 text-slate-100 bg-indigo-800 rounded-xl text-lg shadow-md shadow-black hover:bg-teal-300 hover:text-indigo-800 transition delay-75 ease-in-out font-bold active:scale-90"
+				>
 					START
-				</button>
+				</Link>
 			</div>
 		</div>
 	);
