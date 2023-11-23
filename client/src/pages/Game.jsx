@@ -6,11 +6,26 @@ import { setCards } from '../features/card/cardSlice';
 import { SocketContext } from '../context/socket';
 
 const Game = () => {
+	//new
+	const [players, setPlayers] = useState([])
+
+	useEffect(() => {
+		
+	}, [])
+	
 	const cards = useSelector((state) => state.card.list);
 	const dispatch = useDispatch();
 	// const [socket, setSocket] = useState(null);
 	const { socket } = useContext(SocketContext);
 	const room = 'TORTUGA';
+
+	//new
+	const userData = useSelector((state) => state.user.profile)
+	console.log("User Data >>>", userData)
+
+	const username = userData.username
+	console.log("username >>>", username)
+	//
 
 	useEffect(() => {
 		// setSocket(io('http://localhost:3000'));
