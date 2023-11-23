@@ -31,8 +31,9 @@ export const { setUser } = userSlice.actions;
 export const login = (userData) => {
 	return async (dispatch) => {
 		const data = await loginApi(userData);
+		console.log("Received User Data", data)
 		localStorage.setItem('access_token', data.access_token);
-		console.log(data);
+		console.log(data.profile);
 		dispatch(setUser(data.profile));
 	};
 };

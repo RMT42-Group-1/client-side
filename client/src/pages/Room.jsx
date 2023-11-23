@@ -2,29 +2,16 @@ import RoomBar from '../component/RoomBar';
 import { useContext, useEffect, useState } from 'react';
 import { SocketContext } from '../context/socket.jsx';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Room = () => {
-	const [target, setTarget] = useState('');
-	const [users, setUsers] = useState([]);
-	const [scores, setScores] = useState([]);
+	const userData = useSelector((state) => state.user.profile)
+	console.log("User Data >>>", userData)
 
-	const { socket } = useContext(SocketContext);
+	const username = userData.username
+	console.log("username >>>", username)
 
-	const handleJoinRoom = () => {
-		socket.emit('JoinRoom', target);
-		setTarget('');
-	};
 
-	useEffect(() => {
-		socket.on('fetchData', (users, scores) => {
-			setUsers(users);
-			setScores(scores);
-		});
-
-		return () => {
-			socket.off('fetchData');
-		};
-	}, [socket]);
 
 	const dummy = [
 		{
