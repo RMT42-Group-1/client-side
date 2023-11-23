@@ -3,11 +3,17 @@ import { loginApi } from './actions';
 
 const initialState = {
 	profile: {
-		id: '',
-		username: '',
-		email: '',
-		photoUrl: '',
+		id: 1,
+		email: 'jack@gmail.com',
+		imageUrl: 'https://i.imgur.com/4gaSugI.jpg',
+		username: 'Jack',
 	},
+	// profile: {
+	// 	id: '',
+	// 	username: '',
+	// 	email: '',
+	// 	photoUrl: '',
+	// },
 };
 
 export const userSlice = createSlice({
